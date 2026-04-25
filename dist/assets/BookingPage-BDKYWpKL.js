@@ -1,1 +1,0 @@
-import{t as e}from"./jsx-runtime-DAs1UGHr.js";var t=e();function n(){return(0,t.jsx)(`div`,{className:`pt-24 text-center py-16`,children:(0,t.jsx)(`h1`,{className:`font-display font-bold text-2xl text-navy-800`,children:`Booking Details`})})}export{n as default};
