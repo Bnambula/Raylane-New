@@ -1,57 +1,52 @@
-# Raylane Express — Web Platform
+# Raylane Express v2 — Multi-Page Platform
 
-Uganda's premier intercity transport booking platform.
+## URL Structure
 
-## Deployment (Vercel)
+| URL | File | Description |
+|-----|------|-------------|
+| `/` | `index.html` | Passenger website (booking, routes, calculator, footer) |
+| `/admin` | `admin/index.html` | Admin portal (login required) |
+| `/operator` | `operator/index.html` | Operator portal (login required) |
+| `/join` | `join/index.html` | Public operator onboarding |
 
-### Option A — Vercel CLI
+## Demo Credentials
+
+**Admin Portal** (`/admin`)
+- Email: `admin@raylaneexpress.com` · Password: `admin123`
+- Email: `finance@raylaneexpress.com` · Password: `finance123`
+
+**Operator Portal** (`/operator`)
+- Email: `uganda@express.com` · Password: `operator123`
+- Email: `gateway@bus.com` · Password: `gateway123`
+
+## Deploy to Vercel
+
+### Option A — Drag & Drop (fastest)
+1. Go to https://vercel.com/new
+2. Click **"Deploy without Git"**
+3. Drag the `raylane-v2` folder
+4. Click **Deploy** → live URL in ~30 seconds
+
+### Option B — Vercel CLI
 ```bash
 npm i -g vercel
-cd raylane-vercel
+cd raylane-v2
 vercel --prod
 ```
 
-### Option B — Vercel Dashboard (Drag & Drop)
-1. Go to https://vercel.com/new
-2. Click **"Deploy without Git"** → drag this folder
-3. Click **Deploy**
-
 ### Option C — GitHub
-1. Push this folder to a GitHub repo
-2. Import repo at https://vercel.com/new
-3. Vercel auto-detects static site → Deploy
+1. Push folder to GitHub repo
+2. Import at https://vercel.com/new
+3. Vercel auto-detects static → Deploy
 
-## Structure
-```
-raylane-vercel/
-├── index.html      ← Full platform (Passenger + Admin + Operator)
-├── vercel.json     ← Vercel config
-├── package.json    ← Project metadata
-├── .gitignore
-└── README.md
-```
+## File Sizes
+- `index.html` — 478 KB (passenger site, full MVP)
+- `admin/index.html` — 226 KB (admin portal + user management)
+- `operator/index.html` — 204 KB (operator portal)
+- `join/index.html` — 128 KB (onboarding + 3-step form + calculator)
 
-## Portals
-| Portal | Access |
-|--------|--------|
-| Passenger Website | Default landing page |
-| Admin Dashboard | Click "Admin" in nav top-right |
-| Operator Portal | Click "Operator" in nav top-right |
-
-## Payment Flow
-- MTN MoMo: Merchant Code **RAYLANE EXPRESS**
-- Airtel Money: Pay Goods/Services
-- QR Code: Available during booking checkout
-
-## Tech Stack
-- Pure HTML + CSS + Vanilla JS
-- Google Fonts (Bebas Neue + Barlow)
-- No framework dependencies
-- No build step required
-- Vercel static hosting
-
-## Next Steps (Backend)
-1. Connect Supabase for bookings database
-2. Add WhatsApp API (Twilio / WhatsApp Business)
-3. Add SMS gateway (Africa's Talking)
-4. Integrate real MoMo payment confirmation webhooks
+## Next Backend Steps
+1. **Supabase** — bookings, payments, trips, users, operators tables
+2. **Africa's Talking** — SMS for OTP, payment notifications, credentials
+3. **WhatsApp Business API** — QR ticket delivery
+4. **MoMo Webhook** — auto-match payments by reference name
