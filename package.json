@@ -1,0 +1,7 @@
+{
+  "name": "raylane-express",
+  "version": "2.0.0",
+  "description": "Raylane Express — Uganda's Premier Transport Platform",
+  "scripts": { "start": "npx serve ." },
+  "license": "UNLICENSED"
+}
